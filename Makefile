@@ -26,5 +26,5 @@ generate:
 	git config --local user.name "GitHub Action"
 	git add .
 	git commit -m "test"
-	git push
+	git push origin main
 all: install lint test format deploy
