@@ -1,57 +1,61 @@
-"""
-Main CLI or app entry point
-"""
+import mylib.lib as mylib
+import logging
 
-from mylib.lib import (
-    load_and_preview_data,
-    calculate_summary_statistics,
-    calculate_descriptive_statistics,
-    plot_age_distribution,
-    plot_gender_distribution_by_department,
+logging.basicConfig(
+    filename="database_operations.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
 )
 
+# Connect to the database
+conn = mylib.connect_to_db("school.db")
+cursor = conn.cursor()
 
-def g_describe(file):
-    """
-    Loads and previews data.
-    """
-    g = load_and_preview_data(file)
-    return g
+# Create tables
+mylib.create_students_table(cursor)
+logging.info("Executed create_students command.")
+mylib.create_classes_table(cursor)
+logging.info("Executed create_classes command.")
 
+# Insert data
+students_data = [
+    (1, "Alice", 20, "A"),
+    (2, "Bob", 21, "B"),
+    (3, "Charlie", 19, "A"),
+    (4, "David", 22, "C"),
+]
+mylib.insert_students(cursor, students_data)
+logging.info("Executed insert_students command.")
+classes_data = [
+    (1, 1, "Mathematics"),
+    (2, 1, "Physics"),
+    (3, 2, "Chemistry"),
+    (4, 3, "Biology"),
+]
+mylib.insert_classes(cursor, classes_data)
+logging.info("Executed insert_classes command.")
 
-def save_to_md(text, filename="descriptive.md"):
-    """
-    Appends text to a markdown file.
-    """
-    with open(filename, "a") as file:
-        file.write(text + "\n")
+# Read data
+students_with_grade_a = mylib.read_students_with_grade(cursor, "A")
+print("Students with grade A:")
+for student in students_with_grade_a:
+    print(student)
+logging.info("Executed read_students_with_grade command.")
 
+# Update data
+mylib.update_student_age(cursor, "Bob", 1)
+logging.info("Executed update_student_age command.")
+# Delete data
+mylib.delete_student(cursor, "David")
+logging.info("Executed delete_students command.")
 
-def insert_image_to_md(image_filename, markdown_filename="descriptive.md"):
-    """
-    Inserts the image reference into the markdown file.
-    """
-    save_to_md(f"![{image_filename}]({image_filename})", markdown_filename)
+# Perform a JOIN query
+students_classes = mylib.join_students_and_classes(cursor)
+print("\nStudent names and their classes:")
+for row in students_classes:
+    print(row)
+logging.info("Executed join_students_and_classes command.")
 
-
-if __name__ == "__main__":
-    # pylint: disable=no-value-for-parameter
-    file_path = "./Employee.csv"
-    df = g_describe(file_path)
-    calculate_summary_statistics(df)
-    calculate_descriptive_statistics(df)
-    plot_age_distribution(df)
-    plot_gender_distribution_by_department(df)
-    save_to_md("# Employee Data Overview")
-    save_to_md("## Data Head", "descriptive.md")
-    save_to_md(df.head().to_markdown(), "descriptive.md")
-    save_to_md("## Summary Statistics", "descriptive.md")
-    summary_stats = calculate_summary_statistics(df)
-    save_to_md(summary_stats.to_markdown(), "descriptive.md")
-    save_to_md("## Descriptive Statistics for Age and Salary", "descriptive.md")
-    calculate_descriptive_statistics(df)
-    save_to_md("## Age Distribution Plot", "descriptive.md")
-    insert_image_to_md("age.png")
-
-    save_to_md("## Gender Distribution by Department Plot", "descriptive.md")
-    insert_image_to_md("department.png")
+# Commit changes and close the connection
+conn.commit()
+conn.close()

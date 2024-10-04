@@ -1,69 +1,87 @@
-import pandas as pd
-import matplotlib.pyplot as plt
-def load_and_preview_data(file_path):
-    """
-    Loads the data from the specified CSV file and prints the first few rows.
-    """
-    df = pd.read_csv(file_path)
-    print(df.head())
-    return df
+import sqlite3
+import logging
+logging.basicConfig(
+    filename='database_operations.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+def connect_to_db(db_name):
+    """Connect to the SQLite database."""
+    conn = sqlite3.connect(db_name)
+    logging.info(f"Connected to database '{db_name}' successfully.")
+    return conn
 
-def calculate_summary_statistics(df):
-    """
-    Calculates and prints summary statistics for the data.
-    """
-    summary_statistics = df.describe()
-    print(summary_statistics)
-    return summary_statistics
+def create_students_table(cursor):
+    """Create students table."""
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS students (
+            id INTEGER PRIMARY KEY,
+            name TEXT NOT NULL,
+            age INTEGER,
+            grade TEXT
+        )
+    ''')
+    logging.info("Students table created successfully.")
 
-def calculate_descriptive_statistics(df):
-    """
-    Calculates and prints the descriptive statistics for Age and Salary.
-    """
-    age_mean = df['Age'].mean()
-    age_median = df['Age'].median()
-    age_std = df['Age'].std()
+def insert_students(cursor, students_data):
+    """Insert students into the students table."""
+    cursor.executemany('''
+        INSERT OR IGNORE INTO students (id, name, age, grade) 
+        VALUES (?, ?, ?, ?)
+    ''', students_data)
+    logging.info(f"Inserted {len(students_data)} students into the table successfully.")
 
-    salary_mean = df['Salary'].mean()
-    salary_median = df['Salary'].median()
-    salary_std = df['Salary'].std()
+def read_students_with_grade(cursor, grade):
+    """Read students with a specific grade."""
+    cursor.execute('SELECT * FROM students WHERE grade = ?', (grade,))
+    result = cursor.fetchall()
+    logging.info(f"Retrieved {len(result)} students with grade '{grade}' successfully.")
+    return result
 
-    print("Age descriptive statistics:")
-    print(f"Average age: {age_mean:.2f}")
-    print(f"Median age: {age_median}")
-    print(f"Standard Deviation of age: {age_std:.2f}")
+def update_student_age(cursor, name, age_increment):
+    """Update the age of a student by name."""
+    cursor.execute('''
+        UPDATE students 
+        SET age = age + ? 
+        WHERE name = ?
+    ''', (age_increment, name))
+    logging.info(f"Updated age for student '{name}' by {age_increment}.")
 
-    print("\nSalary descriptive statistics:")
-    print(f"Average salary: {salary_mean:.2f}")
-    print(f"Median salary: {salary_median}")
-    print(f"Standard Deviation of salary: {salary_std:.2f}")
+def delete_student(cursor, name):
+    """Delete a student by name."""
+    cursor.execute('''
+        DELETE FROM students 
+        WHERE name = ?
+    ''', (name,))
+    logging.info(f"Deleted student '{name}' successfully.")
 
-def plot_age_distribution(df):
-    """
-    Plots the distribution of Age.
+def create_classes_table(cursor):
+    """Create classes table."""
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS classes (
+            class_id INTEGER PRIMARY KEY,
+            student_id INTEGER,
+            class_name TEXT,
+            FOREIGN KEY (student_id) REFERENCES students (id)
+        )
+    ''')
+    logging.info("Classes table created successfully.")
 
-    """
-    plt.hist(df['Age'], bins=10, color='blue', alpha=0.7)
-    plt.title('Age Distribution')
-    plt.xlabel('Age')
-    plt.ylabel('Frequency')
-    plt.grid(True)
-    # plt.show()
-    plt.savefig("age.png")
+def insert_classes(cursor, classes_data):
+    """Insert classes into the classes table."""
+    cursor.executemany('''
+        INSERT OR IGNORE INTO classes (class_id, student_id, class_name)
+        VALUES (?, ?, ?)
+    ''', classes_data)
+    logging.info(f"Inserted {len(classes_data)} classes into the table successfully.")
 
-# Define a function to plot the gender distribution across departments
-
-def plot_gender_distribution_by_department(df):
-    gender_dept_counts = df.groupby(['Department', 'Gender']).size().unstack()
-    gender_dept_counts.plot(kind='bar', stacked=True, figsize=(10, 6), 
-                            color=['lightblue', 'lightgreen', 'lightcoral'])
-    plt.title('Gender Distribution by Department')
-    plt.xlabel('Department')
-    plt.ylabel('Number of Employees')
-    plt.xticks(rotation=45)
-    plt.grid(True, axis='y', linestyle='--', alpha=0.7)
-    plt.legend(title='Gender')
-    plt.tight_layout()
-    plt.savefig("department.png")
-
-
+def join_students_and_classes(cursor):
+    """Perform a JOIN between students and classes."""
+    cursor.execute('''
+        SELECT students.name, classes.class_name 
+        FROM students
+        JOIN classes ON students.id = classes.student_id
+    ''')
+    result = cursor.fetchall()
+    logging.info(f"Joined students & classes, retrieved {len(result)} records.")
+    return result
