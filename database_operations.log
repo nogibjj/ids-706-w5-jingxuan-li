@@ -1,34 +1,34 @@
-2024-10-04 04:27:11,356 - INFO - Connected to database 'school.db' successfully.
-2024-10-04 04:27:11,356 - INFO - Students table created successfully.
-2024-10-04 04:27:11,356 - INFO - Executed create_students command.
-2024-10-04 04:27:11,356 - INFO - Classes table created successfully.
-2024-10-04 04:27:11,356 - INFO - Executed create_classes command.
-2024-10-04 04:27:11,356 - INFO - Inserted 4 students into the table successfully.
-2024-10-04 04:27:11,357 - INFO - Executed insert_students command.
-2024-10-04 04:27:11,357 - INFO - Inserted 4 classes into the table successfully.
-2024-10-04 04:27:11,357 - INFO - Executed insert_classes command.
-2024-10-04 04:27:11,357 - INFO - Retrieved 2 students with grade 'A' successfully.
-2024-10-04 04:27:11,357 - INFO - Executed read_students_with_grade command.
-2024-10-04 04:27:11,357 - INFO - Updated age for student 'Bob' by 1.
-2024-10-04 04:27:11,357 - INFO - Executed update_student_age command.
-2024-10-04 04:27:11,357 - INFO - Deleted student 'David' successfully.
-2024-10-04 04:27:11,357 - INFO - Executed delete_students command.
-2024-10-04 04:27:11,357 - INFO - Joined students & classes, retrieved 4 records.
-2024-10-04 04:27:11,357 - INFO - Executed join_students_and_classes command.
-2024-10-04 04:27:11,446 - INFO - Connected to database 'school.db' successfully.
-2024-10-04 04:27:11,446 - INFO - Students table created successfully.
-2024-10-04 04:27:11,446 - INFO - Executed create_students command.
-2024-10-04 04:27:11,446 - INFO - Classes table created successfully.
-2024-10-04 04:27:11,446 - INFO - Executed create_classes command.
-2024-10-04 04:27:11,447 - INFO - Inserted 4 students into the table successfully.
-2024-10-04 04:27:11,447 - INFO - Executed insert_students command.
-2024-10-04 04:27:11,447 - INFO - Inserted 4 classes into the table successfully.
-2024-10-04 04:27:11,447 - INFO - Executed insert_classes command.
-2024-10-04 04:27:11,447 - INFO - Retrieved 2 students with grade 'A' successfully.
-2024-10-04 04:27:11,447 - INFO - Executed read_students_with_grade command.
-2024-10-04 04:27:11,447 - INFO - Updated age for student 'Bob' by 1.
-2024-10-04 04:27:11,447 - INFO - Executed update_student_age command.
-2024-10-04 04:27:11,447 - INFO - Deleted student 'David' successfully.
-2024-10-04 04:27:11,447 - INFO - Executed delete_students command.
-2024-10-04 04:27:11,447 - INFO - Joined students & classes, retrieved 4 records.
-2024-10-04 04:27:11,447 - INFO - Executed join_students_and_classes command.
+2024-10-04 04:32:39,525 - INFO - Connected to database 'school.db' successfully.
+2024-10-04 04:32:39,526 - INFO - Students table created successfully.
+2024-10-04 04:32:39,526 - INFO - Executed create_students command.
+2024-10-04 04:32:39,526 - INFO - Classes table created successfully.
+2024-10-04 04:32:39,526 - INFO - Executed create_classes command.
+2024-10-04 04:32:39,526 - INFO - Inserted 4 students into the table successfully.
+2024-10-04 04:32:39,526 - INFO - Executed insert_students command.
+2024-10-04 04:32:39,526 - INFO - Inserted 4 classes into the table successfully.
+2024-10-04 04:32:39,526 - INFO - Executed insert_classes command.
+2024-10-04 04:32:39,526 - INFO - Retrieved 2 students with grade 'A' successfully.
+2024-10-04 04:32:39,526 - INFO - Executed read_students_with_grade command.
+2024-10-04 04:32:39,526 - INFO - Updated age for student 'Bob' by 1.
+2024-10-04 04:32:39,526 - INFO - Executed update_student_age command.
+2024-10-04 04:32:39,526 - INFO - Deleted student 'David' successfully.
+2024-10-04 04:32:39,526 - INFO - Executed delete_students command.
+2024-10-04 04:32:39,526 - INFO - Joined students & classes, retrieved 4 records.
+2024-10-04 04:32:39,526 - INFO - Executed join_students_and_classes command.
+2024-10-04 04:32:39,617 - INFO - Connected to database 'school.db' successfully.
+2024-10-04 04:32:39,617 - INFO - Students table created successfully.
+2024-10-04 04:32:39,617 - INFO - Executed create_students command.
+2024-10-04 04:32:39,617 - INFO - Classes table created successfully.
+2024-10-04 04:32:39,617 - INFO - Executed create_classes command.
+2024-10-04 04:32:39,617 - INFO - Inserted 4 students into the table successfully.
+2024-10-04 04:32:39,617 - INFO - Executed insert_students command.
+2024-10-04 04:32:39,617 - INFO - Inserted 4 classes into the table successfully.
+2024-10-04 04:32:39,617 - INFO - Executed insert_classes command.
+2024-10-04 04:32:39,617 - INFO - Retrieved 2 students with grade 'A' successfully.
+2024-10-04 04:32:39,617 - INFO - Executed read_students_with_grade command.
+2024-10-04 04:32:39,617 - INFO - Updated age for student 'Bob' by 1.
+2024-10-04 04:32:39,617 - INFO - Executed update_student_age command.
+2024-10-04 04:32:39,617 - INFO - Deleted student 'David' successfully.
+2024-10-04 04:32:39,617 - INFO - Executed delete_students command.
+2024-10-04 04:32:39,618 - INFO - Joined students & classes, retrieved 4 records.
+2024-10-04 04:32:39,618 - INFO - Executed join_students_and_classes command.
