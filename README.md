@@ -1,4 +1,4 @@
-
+[![CICD](https://github.com/nogibjj/ids-706-w5-jingxuan-li/actions/workflows/CICD.yml/badge.svg)](https://github.com/nogibjj/ids-706-w5-jingxuan-li/actions/workflows/CICD.yml)
 # IDS 706 w5 - Jingxuan Li
 
 This repository contains a project for database management and CRUD operations using SQLite, integrated with testing, logging, and a CI/CD pipeline for continuous integration and validation.
