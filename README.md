@@ -1,5 +1,5 @@
 
-# IDS 706 Miniproject 2 - Jingxuan Li
+# IDS 706 w5 - Jingxuan Li
 
 This repository contains a project for database management and CRUD operations using SQLite, integrated with testing, logging, and a CI/CD pipeline for continuous integration and validation.
 
@@ -67,7 +67,7 @@ The project is integrated with a GitHub Actions CI/CD pipeline that runs the tes
    The CI/CD pipeline is defined in `.github/workflows/CICD.yml`. This file includes steps to:
    - Set up the Python environment.
    - Install required dependencies.
-   - Run (`main.py`), which includes CRUD operations on the `.db` file.
+   - Run (`main.py`), which includes CRUD operations on the `.db` file and generate log.
 
 2. **Pipeline Trigger**:
    - **Push to Main Branch**: Every time you push code to the main branch.
