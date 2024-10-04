@@ -25,6 +25,6 @@ generate:
 	git config --local user.email "action@github.com"
 	git config --local user.name "GitHub Action"
 	git add .
-	git commit -m "test"
+	git commit -m "generate log and db"
 	git push origin main
 all: install lint test format deploy
