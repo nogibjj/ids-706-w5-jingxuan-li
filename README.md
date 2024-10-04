@@ -47,6 +47,7 @@ To ensure your code modifications function correctly, a suite of tests is includ
 
 3. **Review Test Results**:
    Examine the output in the terminal to verify that all tests pass without errors.
+![image](https://github.com/user-attachments/assets/e2f997e1-11f3-4aff-bbd4-05f263e36b9a)
 
 ### Logging of Database Operations
 
@@ -54,7 +55,7 @@ To monitor the progress of database operations, a log file `database_operations.
 
 #### Example Log Output
 
-
+![image](https://github.com/user-attachments/assets/9bc82017-3c33-44f6-95de-e58c13ad5438)
 
 ## Continuous Integration (CI/CD Pipeline)
 
@@ -91,7 +92,6 @@ Here is an overview of important files and directories in the repository:
 - **`mylib/lib.py`**: Contains the database functions (`connect_to_db`, `create_students_table`, `insert_students`, etc.).
 - **`main.py`**: Main Python script to execute different database operations.
 - **`test_main.py`**: test script of main.py.
-- **`decriptive.ipynb`**: Jupyter Notebook for analysis and exploration.
 
 ## Available Commands in `main.py`
 
