@@ -1,0 +1,17 @@
+2024-10-04 00:17:53,661 - INFO - Connected to database 'school.db' successfully.
+2024-10-04 00:17:53,665 - INFO - Students table created successfully.
+2024-10-04 00:17:53,665 - INFO - Executed create_students command.
+2024-10-04 00:17:53,665 - INFO - Classes table created successfully.
+2024-10-04 00:17:53,665 - INFO - Executed create_classes command.
+2024-10-04 00:17:53,666 - INFO - Inserted 4 students into the table successfully.
+2024-10-04 00:17:53,666 - INFO - Executed insert_students command.
+2024-10-04 00:17:53,666 - INFO - Inserted 4 classes into the table successfully.
+2024-10-04 00:17:53,666 - INFO - Executed insert_classes command.
+2024-10-04 00:17:53,666 - INFO - Retrieved 2 students with grade 'A' successfully.
+2024-10-04 00:17:53,666 - INFO - Executed read_students_with_grade command.
+2024-10-04 00:17:53,666 - INFO - Updated age for student 'Bob' by 1.
+2024-10-04 00:17:53,667 - INFO - Executed update_student_age command.
+2024-10-04 00:17:53,667 - INFO - Deleted student 'David' successfully.
+2024-10-04 00:17:53,667 - INFO - Executed delete_students command.
+2024-10-04 00:17:53,667 - INFO - Joined students & classes, retrieved 4 records.
+2024-10-04 00:17:53,667 - INFO - Executed join_students_and_classes command.
